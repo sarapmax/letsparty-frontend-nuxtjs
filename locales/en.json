@@ -9,5 +9,16 @@
   },
   "teamMember": {
     "title": "Meet our awesome team members!"
+  },
+  "global": {
+    "letsParty": "Let's Party!"
+  },
+  "auth": {
+    "loginToJoinTheParty": "Log in to join the party!",
+    "email": "email",
+    "password": "password",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "notHaveAccount": "Don't have an account?"
   }
 }

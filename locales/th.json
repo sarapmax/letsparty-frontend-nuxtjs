@@ -9,5 +9,17 @@
   },
   "teamMember": {
     "title": "สมาชิกในทีม"
+  },
+  "global": {
+    "letsParty": "Let's Party!"
+  },
+  "auth": {
+    "loginToJoinTheParty": "Log in to join the party!",
+    "email": "email",
+    "password": "password",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "notHaveAccount": "Don't have an account?",
+    "registerBeforeJoiningTheParty": "Register before joining the party!"
   }
 }
