@@ -84,6 +84,10 @@ export default {
 
           this.$router.push(this.localePath('/'))
         } catch (e) {
+          this.$notifier.showMessage({
+            content: e.response.data.message,
+            color: 'error',
+          })
         } finally {
           this.isLoading = false
         }

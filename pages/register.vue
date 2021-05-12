@@ -113,8 +113,17 @@ export default {
 
           await this.$store.dispatch('user/create', formData)
 
+          this.$notifier.showMessage({
+            content:
+              "Your account has been created successfully! Let's join the party!",
+            color: 'success',
+          })
           this.$router.push('/login')
         } catch (e) {
+          this.$notifier.showMessage({
+            content: e,
+            color: 'error',
+          })
         } finally {
           this.isLoading = false
         }

@@ -4,4 +4,10 @@ export default function ({ store }, inject) {
       store.dispatch('global/activateLoader', active)
     },
   })
+
+  inject('notifier', {
+    showMessage({ content = '', color = '' }) {
+      store.commit('snackbar/showMessage', { content, color })
+    },
+  })
 }
