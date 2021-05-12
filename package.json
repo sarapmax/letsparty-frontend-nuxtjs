@@ -8,9 +8,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint": "npm run lint:js",
-    "test": "jest",
-    "start:mock-server": "npx json-server --watch mock-db.json --port 8081 --no-cors true"
+    "lint": "npm run lint:js"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
