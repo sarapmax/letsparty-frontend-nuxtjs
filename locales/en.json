@@ -1,0 +1,13 @@
+{
+  "layout": {
+    "title": "Nuxt Frontend Template"
+  },
+  "menu": {
+    "welcome": "Wecome",
+    "inspire": "Inspire",
+    "teamMembers": "Team Members"
+  },
+  "teamMember": {
+    "title": "Meet our awesome team members!"
+  }
+}

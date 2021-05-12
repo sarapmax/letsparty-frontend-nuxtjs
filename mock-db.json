@@ -1,0 +1,23 @@
+{
+  "team-members": [
+    {
+      "email": "johndoe@example.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "bio": "Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "status": "active",
+      "id": 1
+    },
+    {
+      "email": "janedoe@example.com",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "bio": "relating to or dependent on charity; charitable. an eleemosynary educational institution.",
+      "status": "disabled",
+      "id": 2
+    }
+  ],
+  "auth": {
+    "token": "foobar"
+  }
+}
