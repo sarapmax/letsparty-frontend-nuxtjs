@@ -1,4 +1,4 @@
-# NUXT FRONTEND TEMPLATE
+# LET's Party Frontend
 
 ## Feature
 
