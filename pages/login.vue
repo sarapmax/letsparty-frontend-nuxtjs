@@ -1,5 +1,5 @@
 <template>
-  <v-content class="tw-bg-gray-900">
+  <v-content>
     <v-container fill-height="fill-height">
       <v-layout align-center="align-center" justify-center="justify-center">
         <v-flex class="login-form text-xs-center">
@@ -39,7 +39,7 @@
                 <v-btn
                   type="submit"
                   :loading="isLoading"
-                  color="secondary"
+                  color="primary"
                   block="block"
                 >
                   {{ $t('auth.signIn') }}

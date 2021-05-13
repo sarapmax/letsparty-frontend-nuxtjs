@@ -1,25 +1,23 @@
 {
-  "layout": {
-    "title": "Nuxt Frontend Template"
-  },
-  "menu": {
-    "welcome": "ยินดีต้อนรับ",
-    "inspire": "แรงบันดาลใจ",
-    "teamMembers": "สมาชิกในทีม"
-  },
-  "teamMember": {
-    "title": "สมาชิกในทีม"
-  },
   "global": {
     "letsParty": "Let's Party!"
   },
   "auth": {
     "loginToJoinTheParty": "Log in to join the party!",
-    "email": "email",
-    "password": "password",
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
-    "notHaveAccount": "Don't have an account?",
-    "registerBeforeJoiningTheParty": "Register before joining the party!"
+    "email": "อีเมล์",
+    "password": "รหัสผ่าน",
+    "fullName": "ชื่อจริง",
+    "signIn": "เข้าสู่ระบบ",
+    "signUp": "สมัครสมาชิก",
+    "notHaveAccount": "ยังไม่มี Account?",
+    "alreadyHaveAccount": "มี Account แล้ว?",
+    "registerBeforeJoiningTheParty": "สมัครก่อนร่วมปาร์ตี้!"
+  },
+  "party": {
+    "createTitle": "สร้างปาร์ตี้",
+    "updateTitle": "แก้ไขปาร์ตี้",
+    "title": "รายชื่อปาร์ตี้",
+    "name": "ชื่อปาร์ตี้",
+    "maxMembers": "จำนวนสมาชิกสูงสุด"
   }
 }

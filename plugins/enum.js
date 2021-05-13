@@ -12,10 +12,4 @@ export default function (app, inject) {
       en: 'en',
     },
   })
-  inject('displayEnum', {
-    saveState: {
-      create: 'สร้าง',
-      update: 'แก้ไข',
-    },
-  })
 }

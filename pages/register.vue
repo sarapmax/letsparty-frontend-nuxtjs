@@ -1,5 +1,5 @@
 <template>
-  <v-content class="tw-bg-gray-900">
+  <v-content>
     <v-container fill-height="fill-height">
       <v-layout align-center="align-center" justify-center="justify-center">
         <v-flex class="login-form text-xs-center">
@@ -26,7 +26,7 @@
                     class="text-center tw-cursor-pointer mb-3"
                   >
                     <v-avatar
-                      v-if="!form.avatar"
+                      v-if="!form.avatar.imageURL"
                       v-ripple
                       size="100px"
                       class="grey lighten-3"
@@ -63,7 +63,7 @@
                 ></v-text-field>
                 <v-btn
                   type="submit"
-                  color="secondary"
+                  color="primary"
                   class="mt-4"
                   block="block"
                   :loading="isLoading"
@@ -92,7 +92,10 @@ export default {
       valid: false,
       isLoading: false,
       form: {
-        avatar: null,
+        avatar: {
+          imageURL: null,
+          imageFile: null,
+        },
         email: null,
         password: null,
         fullName: null,
@@ -102,6 +105,15 @@ export default {
   methods: {
     async register() {
       if (this.$refs.form.validate()) {
+        if (!this.form.avatar.imageFile) {
+          this.$notifier.showMessage({
+            content: 'Please select your avatar',
+            color: 'error',
+          })
+
+          return
+        }
+
         try {
           this.isLoading = true
 

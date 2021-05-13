@@ -1,94 +1,88 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation </a
-            >.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br />
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <v-container>
+    <v-row>
+      <v-col>
+        <h1 class="tw-text-xl mt-2">{{ $t('party.title') }}</h1>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col
+        v-for="(party, partyIndex) in parties"
+        :key="partyIndex"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="2"
+      >
+        <PartyCard
+          :party="party"
+          @onEdit="openSavePartyDialog($enum.saveState.update, party)"
+          @partyDeleted="getParties"
+          @memberJoined="getParties"
+        />
+      </v-col>
+    </v-row>
+
+    <v-fab-transition>
+      <v-btn
+        color="primary"
+        fixed
+        fab
+        dark
+        medium
+        bottom
+        right
+        @click="openSavePartyDialog($enum.saveState.create)"
+      >
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+    </v-fab-transition>
+
+    <SavePartyDialog
+      v-if="savePartyDialog"
+      :state="savePartyDialogState"
+      :existing-party="existingParty"
+      :dialog="savePartyDialog"
+      :title="$t(`party.${savePartyDialogState}Title`)"
+      @onClose="savePartyDialog = false"
+      @partySaved="getParties"
+    />
+  </v-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo,
-  },
   middleware: 'auth',
+  data() {
+    return {
+      parties: [],
+      existingParty: null,
+      savePartyDialog: false,
+      savePartyDialogState: null,
+    }
+  },
+  async fetch() {
+    this.$loader.activate()
+    await this.getParties()
+    this.$loader.activate(false)
+  },
+  methods: {
+    async getParties() {
+      await this.$store.dispatch('party/all')
+      this.parties = this.$store.getters['party/parties']
+    },
+    openSavePartyDialog(state, party = null) {
+      if (state === this.$enum.saveState.create) {
+        this.savePartyDialogState = this.$enum.saveState.create
+      }
+
+      if (state === this.$enum.saveState.update) {
+        this.existingParty = party
+        this.savePartyDialogState = this.$enum.saveState.update
+      }
+
+      this.savePartyDialog = true
+    },
+  },
 }
 </script>

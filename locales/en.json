@@ -1,15 +1,4 @@
 {
-  "layout": {
-    "title": "Nuxt Frontend Template"
-  },
-  "menu": {
-    "welcome": "Wecome",
-    "inspire": "Inspire",
-    "teamMembers": "Team Members"
-  },
-  "teamMember": {
-    "title": "Meet our awesome team members!"
-  },
   "global": {
     "letsParty": "Let's Party!"
   },
@@ -17,8 +6,18 @@
     "loginToJoinTheParty": "Log in to join the party!",
     "email": "email",
     "password": "password",
+    "fullName": "Full Name",
     "signIn": "Sign In",
     "signUp": "Sign Up",
-    "notHaveAccount": "Don't have an account?"
+    "notHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "registerBeforeJoiningTheParty": "Register before joining the party!"
+  },
+  "party": {
+    "createTitle": "Create Party",
+    "updateTitle": "Update Party",
+    "title": "List of parties",
+    "name": "Party Name",
+    "maxMembers": "Maximum number of members"
   }
 }

@@ -1,4 +1,4 @@
-const endpoint = '/team-members'
+const endpoint = '/v1/parties'
 
 export default ({ $axios }) => ({
   all() {

@@ -9,8 +9,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - nuxtjs-frontend-template',
-    title: 'nuxtjs-frontend-template',
+    titleTemplate: '%s',
+    title: "Let's party!",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -107,6 +107,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
+      dark: true,
       themes: {
         light: {
           ...colos,
